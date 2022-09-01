@@ -1,0 +1,44 @@
+.header{
+
+  height:40px;
+}
+
+.section-cart{
+  font-size: 20px;
+  display:flex;
+height:50px;
+position: relative;
+  background-color: darkgrey;
+
+
+}
+.section1{
+  justify-content: space-between;
+  height: 100%;
+}
+.ddd{
+  /* margin-top: 30px; */
+  display: grid;
+  flex-direction: row;
+
+}
+.dd{
+display:flex;
+border: 2px solid black;
+
+}
+.dd2{
+border: 2px solid black;
+  display:flex;
+  margin-top:10px;
+  margin-bottom: 20px;
+  }
+/* .ddd div{
+
+
+  width: 500px;
+} */
+.f{
+  display: flex;
+  flex-direction: column;
+}
