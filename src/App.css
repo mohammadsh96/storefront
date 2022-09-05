@@ -42,3 +42,11 @@ border: 2px solid black;
   display: flex;
   flex-direction: column;
 }
+.cartData{
+  font-size: 17px;
+  font-weight:500;
+  color:rgb(66, 3, 3);
+}
+.cartData:hover{
+  cursor:grab;
+}
