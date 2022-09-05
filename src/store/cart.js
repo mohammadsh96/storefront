@@ -6,6 +6,7 @@ const initialState ={
     totalCartItems:0,
   };
 
+  localStorageData(initialState)
 
   export default (state = initialState, action) => {
     const { type, payload } = action;

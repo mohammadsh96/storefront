@@ -1,5 +1,5 @@
 import * as React from "react";
-// import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import Card from "@mui/material/Card";
 import { CardHeader } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
@@ -22,11 +22,21 @@ function Products(props) {
   let data = getData();
   console.log("this is the data i received fro helpful ", data);
   //  let items =  JSON.parse(localStorage.getItem('cart'))
+  // const initialState ={
+  //   cartItems:[
+  //     {id:3,
+  //       name: 'Khoraro', category: 'food', price: 0.39, inStock: 90, inCart: 1,
+  //       image: 'https://n4.sdlcdn.com/imgs/j/a/x/Cucumber-Green-Vegetables-Premium-Vegetables-SDL210844973-1-f1cdd.jpg',
+  //     }
+  //   ],
+  //   totalCartItems:0,
+  // };  
+  
   // useEffect(()=>{
 
-  // let local = (localStorage.getItem('cart'))
+  // localStorage.setItem('cart', JSON.stringify(initialState ))
 
-  // },[items])
+  // },[])
   // const style2={display:'flex'}
   return (
     <>
