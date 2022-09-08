@@ -1,50 +1,30 @@
 import * as React from "react";
-import {  useEffect } from "react";
+// import {  useEffect } from "react";
 import Card from "@mui/material/Card";
 import { CardHeader } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import { addToCart } from "../store/cart.js";
+import {apiData}  from "../store/API.js";
+
 import { deletefromcart } from "../store/cart.js";
 import { getData } from "../store/helpful";
 
 import { connect } from "react-redux";
+  
 
 function Products(props) {
   const style = { width: "221.2px", height: "200px" };
-  // const [savedNotes] = useState(JSON.parse(localStorage.getItem('cart')))
-  // const [items, setList] = useState(savedNotes ? savedNotes : []);
-  // useEffect(() => {
-  //   localStorage.setItem('cart', JSON.stringify(items));
-
-  //  },[items]);
-
-  let data = getData();
-  console.log("this is the data i received fro helpful ", data);
-  //  let items =  JSON.parse(localStorage.getItem('cart'))
-  // const initialState ={
-  //   cartItems:[
-  //     {id:3,
-  //       name: 'Khoraro', category: 'food', price: 0.39, inStock: 90, inCart: 1,
-  //       image: 'https://n4.sdlcdn.com/imgs/j/a/x/Cucumber-Green-Vegetables-Premium-Vegetables-SDL210844973-1-f1cdd.jpg',
-  //     }
-  //   ],
-  //   totalCartItems:0,
-  // };  
   
-  // useEffect(()=>{
-
-  // localStorage.setItem('cart', JSON.stringify(initialState ))
-
-  // },[])
-  // const style2={display:'flex'}
+  let data = getData();
+// const style2={display:'flex'} 
+  
   return (
     <>
       <div className="f">
         <section className="section-cart">
           <Button color="inherit"> 🧺 Cart({props.cart.totalCartItems})</Button>
 
-          {/* {console.log("this is items from local storage",savedNotes)} */}
           {data.map((cartItem) => {
             return (
               <p className="cartData">
@@ -53,17 +33,26 @@ function Products(props) {
               </p>
             );
           })}
+<div>   <Button
+                      variant="contained"
+                      color="warning"
+                      style={{ width: 100 + "%" }}
+                      onClick={() => {
+                        props.apiData();
+                        // alert(`i'm Happy with my  fixed data 😂  , api data in the console `)
+                      }}
+                    >
+                     GET API DATA
+                    </Button></div>
+                    <section>
+                   {   props.reducer.map((item,idx)=>{
+return (<h4 id="api" key={idx}>
 
-          {/* {
-          props.cart.cartItems.map(cartItem => {
-            return (
-              <p >
-                {cartItem.name}: {cartItem.inCart} pc(s) /
-              </p>
-            );
-          })
-
-        } */}
+name : {item.name}  || resturant : {item.restaurant} || web : {item.web}
+</h4>)
+                      })}
+                    </section>
+       
         </section>
         <div className="div">
           <h1>{props.categories.activeCategory.toUpperCase()}</h1>
@@ -177,12 +166,15 @@ function Products(props) {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products,
+    reducer: state.reducer,
+    // products: state.products, //this is working 
+    products: state.reducer, //this to stop it for now
+
     categories: state.categories,
     cart: state.cart,
   };
 };
-
-const mapDispatchToProps = { addToCart, deletefromcart };
+// eslint-disable-next-line
+const mapDispatchToProps = { addToCart, deletefromcart  ,apiData };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
