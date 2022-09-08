@@ -7,7 +7,7 @@ const initialState ={
   };
 
   localStorageData(initialState)
-
+// eslint-disable-next-line
   export default (state = initialState, action) => {
     const { type, payload } = action;
     switch (type) {
@@ -38,7 +38,8 @@ const initialState ={
           if(state.cartItems[i].name === payload.name && state.cartItems[i].inCart >0){
             state.totalCartItems =state.totalCartItems-1;
             state.cartItems[i].inCart -= 1;
-            if(state.cartItems[i].inCart == 0){
+            if(state.cartItems[i].inCart === 0){
+              // eslint-disable-next-line
               exist =false
               // state.cartItems[i]==null
               // state.cartItems[i].inCart==0

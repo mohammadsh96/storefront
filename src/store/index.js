@@ -1,16 +1,15 @@
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers ,applyMiddleware} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import categories from './categories.js';
 import products from './products.js';
 import cart from './cart.js';
-// import cart1 from './cart1.js';
+import reducer from './API.js'
+import thunk from 'redux-thunk'
 
-// import {}
-
-const rootReducer = combineReducers({categories, products, cart });
+const rootReducer = combineReducers({categories, products, cart ,reducer });
 
 const store = () => {
-  return createStore(rootReducer, composeWithDevTools());
+  return createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 };
 
 export default store();
