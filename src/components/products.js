@@ -39,17 +39,17 @@ function Products(props) {
                       style={{ width: 100 + "%" }}
                       onClick={() => {
                         props.apiData();
-                        // alert(`i'm Happy with my  fixed data 😂  , api data in the console `)
+                        alert(`i was Happy with my fixed data 😄 `)
                       }}
                     >
                      GET API DATA
                     </Button></div>
                     <section>
                    {   props.reducer.map((item,idx)=>{
-return (<h4 id="api" key={idx}>
+return (<div id="api" key={idx}>
 
 name : {item.name}  || resturant : {item.restaurant} || web : {item.web}
-</h4>)
+</div>)
                       })}
                     </section>
        
@@ -167,8 +167,8 @@ name : {item.name}  || resturant : {item.restaurant} || web : {item.web}
 const mapStateToProps = (state) => {
   return {
     reducer: state.reducer,
-    // products: state.products, //this is working 
-    products: state.reducer, //this to stop it for now
+    products: state.products, //this is working 
+    // products: state.reducer, //this to stop it for now
 
     categories: state.categories,
     cart: state.cart,
